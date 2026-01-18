@@ -20,7 +20,7 @@ Follow these steps to run Wondor in your local machine
    
    # Mac/Linux
    python3 -m venv .venv
-   source .venv/bin/activate
+   source .venv/bin/activatesa
    
 3. Install Dependencies
    ```bash
@@ -33,3 +33,6 @@ Follow these steps to run Wondor in your local machine
 5. Start the Development Server
    ```bash
    python manage.py runserver
+
+### Project Structure
+- 
