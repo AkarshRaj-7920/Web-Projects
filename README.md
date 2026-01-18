@@ -35,4 +35,10 @@ Follow these steps to run Wondor in your local machine
    python manage.py runserver
 
 ### Project Structure
-- 
+- app/  
+  |── Authentication #Everything related to User Authentication login, register, forgot password and etc...  
+  |── crudpost #Create, delete, view a post
+- media/ #Stores all the media files provided by the user
+- static/ #All the **CSS** and styling files  
+- templates/ #All the **HTML** files  
+- Wandor/ #All the files for deployment and connecting the project files with each other  
