@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  New Post
+{% endblock %}
+
+{% block links %}
+  <!-- css links -->
+  <link rel="stylesheet" href="{% static 'crudpost/CreatePost/header.css' %}" />
+  <link rel="stylesheet" href="{% static 'crudpost/CreatePost/main.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <header>
+    <nav class="navbar">
+      <span><p>Create Post</p></span>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container">
+      <form method="post" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <div class="post-title">
+          <label for="{{ form.title.id_for_label }}">Title</label>
+          {{ form.title }}
+        </div>
+
+        <div class="post-image">
+          <label for="{{ form.image.id_for_label }}">Upload Image</label>
+          {{ form.image }}
+        </div>
+
+        <div class="location">
+          <label for="{{ form.location.id_for_label }}">Location</label>
+          {{ form.location }}
+        </div>
+
+        <div class="bio">
+          <label for="{{ form.description.id_for_label }}">Description</label>
+          {{ form.description }}
+        </div>
+
+        <div class="upload">
+          <button type="submit">Upload</button>
+          <a href="{% url 'Home' %}">Cancel</a>
+        </div>
+      </form>
+    </section>
+  </main>
+{% endblock %}

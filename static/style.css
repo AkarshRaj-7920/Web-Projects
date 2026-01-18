@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Ubuntu", sans-serif;
+
+    background: #EBF4F5;
+    background: radial-gradient(circle, rgba(235, 244, 245, 1) 20%, rgba(181, 198, 224, 1) 80%);
+}

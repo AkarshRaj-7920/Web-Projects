@@ -1,0 +1,102 @@
+/* Scroll Part */
+* {
+    scrollbar-width: 0px;
+}
+
+*::-webkit-scrollbar {
+    width: 0;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: none;
+}
+
+* {
+    -ms-overflow-style: none;
+}
+
+html {
+    min-height: 100%;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 30px;
+    /* scroll-padding-bottom: 10px; */
+}
+
+/* -------------- */
+/* Header */
+/* -------------- */
+header {
+    /* border: 1px solid red; */
+    position: sticky;
+    top: 0;
+    padding: .1em;
+    z-index: 1;
+}
+
+.searchbar ul {
+    /* border: 1px solid blue; */
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchbar ul .search {
+    /* border: 1px solid black; */
+    width: 30vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.search .hide {
+    border: 0;
+    clip-path: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.search #search-field {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 15px;
+    color: white;
+    font-size: 15px;
+
+    padding: .5em .8em;
+    width: 35%;
+
+    backdrop-filter: blur(25px) saturate(100%);
+    -webkit-backdrop-filter: blur(25px) saturate(100%);
+    background-color: rgba(27, 38, 59, 0.5);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+
+    transition-property: all;
+    transition-duration: .3s;
+}
+
+.search #search-field:focus {
+    width: 100%;
+}
+
+.search #search-field::placeholder {
+    color: white;
+}
+
+.search #search-field:focus::placeholder {
+    color: transparent;
+}

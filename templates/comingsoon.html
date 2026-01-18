@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Profile {{ user_profile.username }}
+{% endblock %}
+
+{% block links %}
+  <!-- css links -->
+  <link rel="stylesheet" href="{% static 'comingsoon.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <header>
+    <nav class="navbar">
+      <div class="box-heading">
+        <span>Wondor</span>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container">
+      <h1>Coming Soon</h1>
+      <a href="{% url 'Home' %}">Return</a>
+    </section>
+  </main>
+{% endblock %}

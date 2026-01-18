@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Profile {{ user_profile.username }}
+{% endblock %}
+
+{% block links %}
+  <!-- css links -->
+  <link rel="stylesheet" href="{% static 'Authentication/Profile/header.css' %}" />
+  <link rel="stylesheet" href="{% static 'Authentication/Profile/main.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <header>
+    <nav class="navbar">
+      <span><p>Profile Page</p></span>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container">
+      <article class="details">
+        <div class="profile-name">
+          <figure>
+            {% if user_profile.profile.profile_pic %}
+              <img src="{{ user_profile.profile.profile_pic.url }}" alt="" />
+            {% else %}
+              <img src="{% static 'Authentication/Profile/imgs/profile.png' %}" alt="" />
+            {% endif %}
+          </figure>
+
+          <span>{{ user_profile.first_name }} {{ user_profile.last_name }}</span>
+        </div>
+
+        <div class="username-bio">
+          <p class="username">@{{ user_profile.username }}</p>
+
+          <p class="Bio">{{ user_profile.profile.bio }}</p>
+        </div>
+      </article>
+
+      <article class="posts">
+        <figure class="post-image">
+          <img src="imgs/posts-img.png" alt="" />
+        </figure>
+
+        <div class="content">
+
+          {% for post in posts %}
+            <div class="post">
+              <div class="fig-details">
+                <figure>
+                  <img src="{{ post.image.url }}" alt="" />
+                </figure>
+
+                <div class="heading-date">
+                  <h2><a href="{% url 'post-detail' post.pk %}">{{ post.title }}</a></h2>
+                  <p>{{ post.created_at|date:"d/m/y" }}</p>
+                </div>
+              </div>
+
+              <div class="edit-del">
+                <a href="{% url 'comming-soon' %}">Edit</a>
+                <a href="{% url 'post-delete' post.pk %}">Delete</a>
+              </div>
+            </div>
+          {% endfor %}
+
+        </div>
+      </article>
+
+      <article class="return">
+        <a href="{% url 'Home' %}" class="home">Home</a>
+        <a href="{% url 'Logout' %}" class="logout">Logout</a>
+      </article>
+    </section>
+  </main>
+{% endblock %}

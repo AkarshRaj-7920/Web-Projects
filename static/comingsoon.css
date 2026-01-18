@@ -1,0 +1,108 @@
+main {
+    width: 100vw;
+    height: 80vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    padding: 2em;
+
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.container h1 {
+    color: darkslategrey;
+}
+
+.container a {
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    padding: .5em 2.1em;
+    border: 3px solid #219ebc;
+    text-decoration: none;
+    border-radius: 2px;
+    position: relative;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    color: #219ebc;
+    transition: .3s ease all;
+    z-index: 1;
+}
+
+.container a::before {
+    transition: .3s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: #219ebc;
+    z-index: -1;
+}
+
+.container a:hover,
+.container a:focus {
+    color: white;
+}
+
+.container a:hover::before,
+.container a:focus::before {
+    transition: .3s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+.container a:active {
+    transform: scale(0.9);
+}
+
+.box-heading {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-heading span {
+    border: 1px solid black;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 45px;
+    font-weight: 900;
+    text-align: center;
+    padding: .1em 0em;
+
+    width: 35vw;
+    border-radius: 0px 0px 20px 20px;
+    background-image: url(imgs/img.jpg);
+    background-position: center;
+    background-size: cover;
+    color: #01023b;
+    text-decoration: line-through;
+    text-decoration-color: #0077b6;
+    box-shadow: 0px 0px 30px 0px #495057;
+}
+
+@media screen and (max-width: 850px) {
+    .box-heading span {
+        width: 80vw;
+    }
+}

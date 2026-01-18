@@ -1,0 +1,196 @@
+/* --------------- */
+/* Header */
+/* --------------- */
+
+.box-heading {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-heading span {
+    border: 1px solid black;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 45px;
+    font-weight: 900;
+    text-align: center;
+    padding: .1em 0em;
+
+    width: 35vw;
+    border-radius: 0px 0px 20px 20px;
+    background-image: url(imgs/img.jpg);
+    background-position: center;
+    background-size: cover;
+    color: #01023b;
+    text-decoration: line-through;
+    text-decoration-color: #0077b6;
+    box-shadow: 0px 0px 30px 0px #495057;
+}
+
+@media screen and (max-width: 850px) {
+    .box-heading span {
+        width: 80vw;
+    }
+}
+
+/* --------------- */
+/* Main */
+/* --------------- */
+
+section {
+    /* border: 1px solid black; */
+    height: 87vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    /* border: 1px solid black; */
+    padding: 1em;
+    border-radius: 25px;
+
+    backdrop-filter: blur(20px) saturate(100%);
+    -webkit-backdrop-filter: blur(20px) saturate(100%);
+    background-color: rgba(10, 20, 30, 0.3);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 0px 50px 0px #6d90b9;
+}
+
+.container form .heading {
+    /* border: 1px solid red; */
+    text-align: center;
+    padding: 1em 0em;
+}
+
+.container form .heading span {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    color: #f8f9fa;
+
+    background: #00458E;
+    background: linear-gradient(180deg, rgba(0, 69, 142, 1) 40%, rgba(0, 3, 40, 1) 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.txt_input {
+    /* border: 1px solid red; */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    padding: .8em 0.5em;
+
+}
+
+.txt_input label {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 20px;
+
+    /* padding: .5em 1.5em; */
+    color: #e9ecef;
+}
+
+.txt_input input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    font-family: "Ubuntu", sans-serif;
+    font-size: 17px;
+    padding: .5em 1em;
+    border-radius: 20px;
+    color: rgba(0, 69, 142, 1);
+
+    backdrop-filter: blur(0px) saturate(100%);
+    -webkit-backdrop-filter: blur(0px) saturate(100%);
+    background-color: rgba(233, 236, 239, 0.8);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.button {
+    /* border: 1px solid red; */
+    text-align: center;
+    padding: .5em;
+}
+
+.button button {
+    outline: none;
+    border: none;
+    box-shadow: none;
+
+    font-family: "Ubuntu", sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    padding: .7em 2em;
+    border-radius: 20px;
+    cursor: pointer;
+
+    backdrop-filter: blur(0px) saturate(100%);
+    -webkit-backdrop-filter: blur(0px) saturate(100%);
+    background-color: #e9ecef;
+    border-radius: 12px;
+    border: 3px solid rgba(52, 58, 64, 1);
+    color: rgba(52, 58, 64, 1);
+    position: relative;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: .3s ease all;
+    z-index: 1;
+}
+
+.button button::before {
+    transition: .5s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: '';
+    background-color: rgba(52, 58, 64, 1);
+    z-index: -1;
+}
+
+.button button:hover,
+.button button:focus {
+    color: #e9ecef;
+}
+
+.button button:hover::before,
+.button button:focus::before {
+    transition: .3s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+}
+
+.button button:active {
+    transform: scale(0.9);
+}
+
+.signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: .5em;
+}
+
+.signup span {
+    /* border: 1px solid red; */
+    font-family: "Ubuntu", sans-serif;
+}
+
+.signup span a {
+    text-decoration: none;
+    color: blue;
+}

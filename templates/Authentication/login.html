@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Login Page
+{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'Authentication/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<header>
+    <nav class="navbar">
+        <div class="box-heading">
+            <span>Wondor</span>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <div class="container">
+
+            {% if messages %}
+                {% for message in messages %}
+                    {% if messages.tags == 'error' %}
+                        <center><h4 style = "color: firebrick;">{{ message }}</h4></center>
+                    {% else %}
+                        <center><h4 style = "color: dodgerblue;">{{ message }}</h4></center>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            <form method="post">
+
+                {% csrf_token %}
+
+                <div class="heading">
+                    <span>Login</span>
+                </div>
+
+                <div class="txt_input">
+                    <label for="username">Username </label>
+                    <input type="text" name="username" placeholder="Username">
+                </div>
+
+                <div class="txt_input">
+                    <label for="password">Password </label>
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+
+                <div class="button">
+                    <button type="submit">Login</button>
+                </div>
+
+                <div class="signup">
+                    <span>Don't have an account? <a href="{% url 'Register' %}">Register</a></span>
+                    <span><a href="{% url 'forgot-password' %}">Forget Password</a></span>
+                </div>
+
+            </form>
+        </div>
+    </section>
+</main>
+{% endblock %}

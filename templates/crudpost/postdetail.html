@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Post Detail
+{% endblock %}
+
+{% block links %}
+  <style>
+    body {
+      font-family: 'Ubuntu', sans-serif;
+    
+      background: #ebf4f5;
+      background: radial-gradient(circle, rgba(235, 244, 245, 1) 20%, rgba(181, 198, 224, 1) 80%);
+    
+      background-image: url({{ post.image.url }});
+      background-repeat: repeat;
+      background-size: cover;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+  </style>
+
+  <!-- css links -->
+  <link rel="stylesheet" href="{% static 'crudpost/ViewPost/main.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <main>
+    <section class="container">
+      <article class="title-img">
+        <div class="heading">
+          <h1>{{ post.title }}</h1>
+        </div>
+
+        <figure>
+          <img src="{{ post.image.url }}" alt="" />
+        </figure>
+      </article>
+
+      <article class="username-des">
+        <div class="username">
+          <span>@{{ post.author.username }}</span>
+        </div>
+
+        <div class="description">
+          <span>Description</span>
+          <p>{{ post.description }}</p>
+        </div>
+
+        <div class="return">
+          <a href="{% url 'Home' %}">Return</a>
+        </div>
+      </article>
+    </section>
+  </main>
+{% endblock %}

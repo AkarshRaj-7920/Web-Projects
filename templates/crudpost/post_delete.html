@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Profile {{ user_profile.username }}
+{% endblock %}
+
+{% block links %}
+  <!-- css links -->
+  <link rel="stylesheet" href="{% static 'crudpost/DeletePost/main.css' %}" />
+{% endblock %}
+
+{% block content %}
+<main>
+    <section class="container">
+        <p>Are you sure you want to delete this post?</p>
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            <div class="options">
+                <button type="submit">Delete</button>
+                <a href="{% url 'Profile' username=request.user.username%}">Cancel</a>
+            </div>
+        </form>
+    </section>
+</main>
+{% endblock %}

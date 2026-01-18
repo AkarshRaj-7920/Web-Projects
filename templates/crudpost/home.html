@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Home
+{% endblock %}
+
+{% block links %}
+  <!-- css links -->
+  <link rel="stylesheet" href="{% static 'crudpost/Home/header.css' %}" />
+  <link rel="stylesheet" href="{% static 'crudpost/Home/main.css' %}" />
+  <link rel="stylesheet" href="{% static 'crudpost/Home/footer.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <header>
+    <nav class="searchbar">
+      <ul>
+        <li class="search">
+          <label for="search-field" class="hide">Search</label>
+          <input type="search" name="search-field" id="search-field" placeholder="Search..." />
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {% for post in posts %}
+      <section class="post-container post-container-1">
+        <div class="container">
+          <img src="{{ post.image.url }}" alt="" class="bg-image" />
+
+          <figure class="image">
+            <img src="{{ post.image.url }}" alt="" />
+          </figure>
+
+          <article class="details">
+            <div class="profile-username">
+              {% if post.profile_img %}
+                <img src="{{ post.profile_img.url }}" alt="" />
+              {% else %}
+                <img src="{% static 'crudpost/Home/imgs/profile.png' %}" alt="" />
+              {% endif %}
+
+              <span class="username">{{ post.author.username }}</span>
+            </div>
+
+            <div class="location">
+              <img src="{% static 'crudpost/Home/imgs/location.png' %}" alt="" />
+
+              {% if post.location %}
+                <span>{{ post.location }}</span>
+              {% else %}
+                <span>{{ post.location }}</span>
+              {% endif %}
+            </div>
+
+            <div class="bio">
+              <p>{{ post.description }}</p>
+              <a href="{% url 'post-detail' post.pk %}">Details</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    {% endfor %}
+  </main>
+
+  <footer>
+    <nav class="menu">
+      <ul>
+        <li class="list-menu">
+          <a href="#" class="item-link">
+            <span>Home</span>
+            <img src="{% static 'crudpost/Home/imgs/home.png' %}" alt="home-icon" class="menu-icon" />
+          </a>
+        </li>
+
+        <li class="list-menu">
+          <a href="{% url 'comming-soon' %}" class="item-link">
+            <span>Explore</span>
+            <img src="{% static 'crudpost/Home/imgs/explore.png' %}" alt="explore-icon" class="menu-icon" />
+          </a>
+        </li>
+
+        <li class="list-menu">
+          <a href="{% url 'post-create' %}" class="item-link">
+            <span>Create Post</span>
+            <img src="{% static 'crudpost/Home/imgs/create-btn.png' %}" alt="createpost-icon" class="menu-icon" />
+          </a>
+        </li>
+
+        <li class="list-menu">
+          <a href="{% url 'comming-soon' %}" class="item-link">
+            <span>Favourites</span>
+            <img src="{% static 'crudpost/Home/imgs/favourite.png' %}" alt="favourite-icon" class="menu-icon" />
+          </a>
+        </li>
+
+        <li class="list-menu">
+          <a href="{% url 'Profile' username=request.user.username %}" class="item-link profile">
+            <span>Profile</span>
+            <img src="{% static 'crudpost/Home/imgs/profile.png' %}" alt="profile-icon" class="menu-icon" />
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </footer>
+{% endblock %}

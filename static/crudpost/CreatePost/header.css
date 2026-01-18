@@ -1,0 +1,56 @@
+body {
+    font-family: "Ubuntu", sans-serif;
+
+    background: #EBF4F5;
+    background: radial-gradient(circle, rgba(235, 244, 245, 1) 20%, rgba(181, 198, 224, 1) 80%);
+    font-family: "Ubuntu", sans-serif;
+
+    background-image: url(imgs/bg-image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* --------------- */
+/* Header */
+/* --------------- */
+.navbar {
+    /* border: 1px solid blue; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar span {
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: .1em 0em;
+    width: 35vw;
+    background-image: url(imgs/img.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 0px 0px 20px 20px;
+    box-shadow: 0px 0px 30px 0px #495057;
+}
+
+.navbar span p {
+    font-size: 45px;
+    font-weight: 900;
+
+    background: #124559;
+    background: linear-gradient(0deg, rgba(18, 69, 89, 1) 35%, rgba(1, 22, 30, 1) 85%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+@media screen and (max-width: 850px) {
+    .navbar span {
+        width: 75vw;
+    }
+}
